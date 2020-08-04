@@ -26,7 +26,7 @@ fi
   ${CUDA_CONFIG_ARG} --with-cuda-arch="${CUDA_ARCH}" || exit 1
 
 # make sets SHAREDEXT correctly for linux/osx
-make install
+make -j 10 install
 
 # make builds libfaiss.a & libfaiss.so; we only want the latter
 rm ${PREFIX}/lib/libfaiss.a

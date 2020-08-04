@@ -8,7 +8,7 @@ fi
 # Build vanilla version (no avx)
 ./configure --with-blas=-lblas --with-lapack=-llapack ${CUDA_CONFIG_ARG}
 
-make -C python build
+make -j 10 -C python build
 
 cd python
 
