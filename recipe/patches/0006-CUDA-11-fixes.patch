@@ -1,0 +1,24 @@
+From 7e28ceac77a45dc457abc90d7fe5b472ceaa0bab Mon Sep 17 00:00:00 2001
+From: Mike Wendt <mike.wendt@me.com>
+Date: Mon, 3 Aug 2020 22:33:42 -0400
+Subject: [PATCH] FIX Prefer c++14 over c++11 for CUDA 11/nvcc
+
+---
+ configure | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configure b/configure
+index ed40dae..f88ed0a 100755
+--- a/configure
++++ b/configure
+@@ -2970,7 +2970,7 @@ ac_link='$CXX -o conftest$ac_exeext $CXXFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ex
+ ac_compiler_gnu=$ac_cv_cxx_compiler_gnu
+ 
+ 
+-  ax_cxx_compile_alternatives="11 0x"    ax_cxx_compile_cxx11_required=true
++  ax_cxx_compile_alternatives="14 11 0x"    ax_cxx_compile_cxx11_required=true
+   ac_ext=cpp
+ ac_cpp='$CXXCPP $CPPFLAGS'
+ ac_compile='$CXX -c $CXXFLAGS $CPPFLAGS conftest.$ac_ext >&5'
+-- 
+2.26.2
