@@ -6,13 +6,8 @@ if [ ${cuda_compiler_version} != "None" ]; then
     # docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html#gpu-feature-list
 
     # the following are all the x86-relevant gpu arches; for building aarch64-packages, add: 53, 62, 72
-    ARCHES=(35 50 52 60 61 70)
-    LATEST_ARCH=70
-    if [ ${cuda_compiler_version} != "9.2" ]; then
-        # cuda 9.2 does not support Turing (sm_75)
-        ARCHES+=(75)
-        LATEST_ARCH=75
-    fi
+    ARCHES=(60 61 70 75 80)
+    LATEST_ARCH=80
     for arch in "${ARCHES[@]}"; do
         CUDA_ARCH="${CUDA_ARCH} -gencode=arch=compute_${arch},code=sm_${arch}";
     done
